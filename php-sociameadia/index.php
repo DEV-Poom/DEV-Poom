@@ -7,6 +7,9 @@
 <?php
   echo "<h1>Hello Social Media</h1><br>";
 
+  if(isset($_SESSION["file_photo"])){
+  echo "<img src ='uploads/".$_SESSION["file_photo"]."' height='250'>"."<br>";
+}
   echo "สวัสดีคุณ ";
   echo $_SESSION["full_name"]."<br>";    
 ?>

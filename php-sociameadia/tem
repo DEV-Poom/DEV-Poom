@@ -1,0 +1,9 @@
+<?php
+  session_start();
+  include("header.php");
+  include("db_connect.php");
+?> 
+
+<?php
+  include("footer.php");
+?>

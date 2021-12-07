@@ -33,6 +33,7 @@
             $_SESSION["user_id"] = $obj->user_id;
             $_SESSION["user_name"] = $obj->user_name;
             $_SESSION["full_name"] = $obj->full_name;
+            $_SESSION["file_photo"] = $obj->file_photo;
             $_SESSION["login"] = true;
 
             if($obj->user_name=="admin") {
@@ -40,6 +41,7 @@
             }
 
             echo "<div class='alert alert-success'>การยืนยันตัวตนถูกต้อง</div>";
+            echo "<div class='spinner-border'></div>";
             echo "<meta http-equiv='refresh' content='2;url=index.php'>";
             
             exit();

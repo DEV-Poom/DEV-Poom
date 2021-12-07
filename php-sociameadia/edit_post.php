@@ -18,6 +18,7 @@
 
         if($result) {
             echo "<div class='alert alert-success'>บันทึกเสร็จสิ้น</div>";
+            echo "<div class='spinner-border'></div>";
             echo "<meta http-equiv='refresh' content='2;url=index.php'>";
         } else {
             echo "<div class='alert alert-danger'>บันทึกข้อมูลล้มเหลว</div>";
