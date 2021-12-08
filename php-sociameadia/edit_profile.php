@@ -33,8 +33,8 @@
 
         if($result) {
             echo "<div class='alert alert-success'>บันทึกเสร็จสิ้น</div>";
-            //echo "<div class='spinner-border'></div>";
-            //echo "<meta http-equiv='refresh' content='2;url=index.php'>";
+            echo "<div class='spinner-border'></div>";
+            echo "<meta http-equiv='refresh' content='2;url=index.php'>";
         } else {
             echo "<div class='alert alert-danger'>บันทึกข้อมูลล้มเหลว</div>";
             echo "<div>$sql</div>";
@@ -54,7 +54,7 @@
         <!-- Start content -->
         <h1>แก้ไขข้อมูลส่วนตัว</h1>
 
-        <form method="post" enctype="multipart/form-data">>
+        <form method="post" enctype="multipart/form-data">
         
         <p>  
             <label>รูปประจำตัว</label>
