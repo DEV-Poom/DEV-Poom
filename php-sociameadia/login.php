@@ -23,7 +23,7 @@
         $user_name = $_POST["user_name"];
         $password = $_POST["password"];
 
-        $sql = "select * from user where user_name='$user_name' and password='$password' ";
+        $sql = "select * from user where user_name='$user_name' and password='$password' and status ='1'";
         //echo $sql;
         $result = $mysqli->query($sql);
         //echo "num row: ".$result->num_rows."<br>";
@@ -38,15 +38,24 @@
 
             if($obj->user_name=="admin") {
                 $_SESSION["admin"] = true;
-            }
+                echo "<div class='alert alert-success'>การยืนยันตัวตนถูกต้อง</div>";
+                echo "<div class='spinner-border'></div>";
+                echo "<meta http-equiv='refresh' content='2;url=admin/index.php'>";
+            }else{
 
             echo "<div class='alert alert-success'>การยืนยันตัวตนถูกต้อง</div>";
             echo "<div class='spinner-border'></div>";
             echo "<meta http-equiv='refresh' content='2;url=index.php'>";
             
-            exit();
+           } exit();
         } else {
-            echo "<div class='alert alert-danger'>การยืนยันตัวตนไม่ถูกต้อง</div>";            
+            if($status==0) {
+                echo "<div class='alert alert-danger'>ชื่อผู้ใช้นี้ยังไม่ได้รับการอนุมัติ</div>";
+            } else if($status==2) {
+                echo "<div class='alert alert-danger'>ชื่อผู้ใช้นี้ถูกยกเลิก</div>";
+            } else {
+                echo "<div class='alert alert-danger'>การยืนยันตัวตนไม่ถูกต้อง</div>";
+            }
         }
     }
 ?>
@@ -54,22 +63,24 @@
     <div class="row">
         <div class="col-sm-12">
         <!-- Start content -->
-        <h1>Login</h1>
+            <h1>Login</h1>
 
-        <form method="post">
-        <p>  
-            <label>ชื่อผู้ใช้</label>
-            <input type="text" name="user_name" class="form-control">
-        </p>
-        <p>  
-            <label>รหัสผ่าน</label>
-            <input type="password" name="password" class="form-control">
-        </p>   
-        <p>
-            <button type="submit" name="login" class="btn btn-primary">เข้าสู่ระบบ</button>
-        </p>              
-        </form>
-
+            <form method="post">
+            <p>  
+                <label>ชื่อผู้ใช้</label>
+                <input type="text" name="user_name" class="form-control">
+            </p>
+            <p>  
+                <label>รหัสผ่าน</label>
+                <input type="password" name="password" class="form-control">
+            </p>   
+            <p>
+                <button type="submit" name="login" class="btn btn-primary">เข้าสู่ระบบ</button>  <a href="register.php" class='btn btn-info'>ลงทะเบียนใหม่</a> 
+            </p>              
+           
+            
+            
+         </form>
         <!-- End content -->
         </div>
     </div>

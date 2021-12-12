@@ -1,14 +1,17 @@
 <?php
-  
-  if(isset($_SESSION["login"])==false){
-    echo "<meta http-equiv='refresh' content='2;url=login.php'>";
-  }
-?>
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
 
+    if(isset($_SESSION["login"])==false) {
+        echo "<meta http-equiv='refresh' content='2;url=login.php'>";
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>socialmeadia</title>
+  <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -20,15 +23,12 @@
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand -->
-  <a class="navbar-brand" href="index.php">mySocial</a>
+  <a class="navbar-brand" href="index.php">mySocialAdmin</a>
 
   <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="search.php">ค้นหาเพื่อน</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="friend.php">เพื่อนทั้งหมด</a>
+      
     </li>
     
     <!-- Dropdown -->
@@ -40,8 +40,8 @@
         <?php echo $_SESSION["user_name"]; ?>
       </a>
       <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="edit_profile.php?user_id=<?php echo $_SESSION["user_id"]; ?>">แก้ไขข้อมูลส่วนตัว</a>
-        <a class="dropdown-item" href="edit_password.php?user_id=<?php echo $_SESSION["user_id"]; ?>">เปลี่ยนรหัสผ่าน</a>
+        <a class="dropdown-item" href="edit_profile.php">แก้ไขข้อมูลส่วนตัว</a>
+        <a class="dropdown-item" href="change_password.php">เปลี่ยนรหัสผ่าน</a>
         <a class="dropdown-item" href="logout.php">ออกจากระบบ</a>
       </div>
     </li>
