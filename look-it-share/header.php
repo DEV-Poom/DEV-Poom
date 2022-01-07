@@ -1,50 +1,31 @@
-<?php
-  
-  if(isset($_SESSION["login"])==false){
-    echo "<meta http-equiv='refresh' content='2;url=login.php'>";
-  }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>LOOK IT SHARE</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</head>
-<body style="background-color:#eeeeee">
-
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <!-- Brand -->
-  <a class="navbar-brand" href="index.php">MyShare</a>
-
-  <!-- Links -->
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="search.php">ค้นหาเพื่อน</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="friend.php">เพื่อนทั้งหมด</a>
-    </li>
-    
-    <!-- Dropdown -->
-    
-  </ul>
-  <ul class="navbar-nav ml-auto">
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-        <?php echo $_SESSION["user_name"]; ?>
-      </a>
-      <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="edit_profile.php?user_id=<?php echo $_SESSION["user_id"]; ?>">แก้ไขข้อมูลส่วนตัว</a>
-        <a class="dropdown-item" href="edit_password.php?user_id=<?php echo $_SESSION["user_id"]; ?>">เปลี่ยนรหัสผ่าน</a>
-        <a class="dropdown-item" href="logout.php">ออกจากระบบ</a>
-      </div>
-    </li>
-  </ul>
-</nav>
-<br>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Look-It-Share</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+	
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                        <a class="navbar-brand" href="#!">Look It Share</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index_form.php">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="view_change.php">Change</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="setting_form.php">Setting</a></li>
+                        <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
