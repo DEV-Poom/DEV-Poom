@@ -2,7 +2,44 @@
   session_start();
   include("header.php");
   include("connect.php");
-?> 
+?>
+
+<?php
+  
+
+    if(isset($_POST["save"])) {
+
+
+		$user_id = $_SESSION["user_id"];
+		$full_name = $_POST["full_name"];
+
+        $photo_name =basename($_FILES["file_photo"]["name"]);
+
+			$sql = "update user set full_name='$full_name' ,file_photo ='$photo_name' 
+            where user_id='$user_id' ";
+			//echo $sql;
+
+			$result = $mysqli->query($sql);        
+
+        if($result) {
+            echo "<div class='alert alert-success'>บันทึกเสร็จสิ้น</div>";
+            echo "<div class='spinner-border'></div>";
+            echo "<meta http-equiv='refresh' content='2;url=index.php'>";
+        } else {
+            echo "<div class='alert alert-danger'>บันทึกข้อมูลล้มเหลว</div>";
+            echo "<div>$sql</div>";
+        }
+    }
+
+    $user_id = $_SESSION["user_id"];
+	echo $user_id;
+    $sql = "select * from user where user_id='$user_id' ";
+    //echo $sql;
+    $result = $mysqli->query($sql);    
+    $obj = $result->fetch_object();
+    
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +63,7 @@
 						<div class="user-avatar">
 							<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Maxwell Admin">
 						</div>
-						<h5 class="user-name">Yuki Hayashi</h5>
+						<h5 class="username">Yuki Hayashi</h5>
 						<h6 class="user-email">yuki@Maxwell.com</h6>
 					</div>
 					<div class="about">
@@ -168,5 +205,7 @@ color: #bcd0f7;
 <script type="text/javascript">
 
 </script>
-</body>
-</html>
+
+<?php
+  include("footer.php");
+?>
